@@ -1,2 +1,0 @@
-!function(){window.performance&&window.performance.mark&&window.performance.mark("scriptStartTime");var e=/local-eu1.hubspot(qa)?.com/.test(document.location.hostname),o=/hs-sitesqa-eu1.com/.test(document.location.hostname);e||o||enviro.set("SENTRY_DEPLOYED",!0);if(window.Raven)try{var t=window.self!==window.top;window.Raven.setExtraContext({isIframe:t})}catch(e){window.Raven.setExtraContext({isIframe:"unknown"})}window.hubspot.meetingsHubletOverride="eu1"}();
-//# sourceMappingURL=//static.hsappstatic.net/MeetingsPublic/static-1.57489/html/configure-monitoring-eu1.js.map
