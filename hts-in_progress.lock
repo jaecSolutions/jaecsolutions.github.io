@@ -1,0 +1,7 @@
+Mirror in progress since Wed, 22 Oct 2025 22:39:25 .. please wait!
+httrack https://www.lespetitesvoixduplateau.com/fr/ -O ./lpvp-backup +*.lespetitesvoixduplateau.com/* +*.yapla.com/* -n +*.png +*.jpg +*.jpeg +*.gif +*.webp +*.svg +*.css +*.js +*.woff +*.woff2 -v 
+To pause the engine: create an empty file named 'hts-stop.lock'
+PID=98424
+UID=501
+GID=501
+START=1761187165

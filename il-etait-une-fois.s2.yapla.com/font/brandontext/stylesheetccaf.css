@@ -1,0 +1,19 @@
+@font-face {
+    font-family: 'brandon_text_light';
+    src: url('https://il-etait-une-fois.s2.yapla.com/font/brandontext/BrandonText-Light.otf');
+}
+
+@font-face {
+    font-family: 'brandon_text_bold_italic';
+    src: url('https://il-etait-une-fois.s2.yapla.com/font/brandontext/BrandonText-BoldItalic.otf');
+}
+
+@font-face {
+    font-family: 'brandon_text_ligh_italic';
+    src: url('https://il-etait-une-fois.s2.yapla.com/font/brandontext/BrandonText-LightItalic.otf');
+}
+
+@font-face {
+    font-family: 'brandon_text_medium_italic';
+    src: url('https://il-etait-une-fois.s2.yapla.com/font/brandontext/BrandonText-MediumItalic.otf');
+}

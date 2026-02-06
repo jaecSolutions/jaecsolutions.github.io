@@ -1,0 +1,220 @@
+:root {
+    /* Current page highlight */
+    --schedule-page-highlight-height: 2px;
+    --schedule-page-highlight-width: 50px;
+    --schedule-page-highlight-radius: 6px;
+    --schedule-page-highlight-color: var(--primary);
+
+    /* Current date */
+    --schedule-current-date-size: 20px;
+    --schedule-current-date-weight: 500;
+
+    /* Pagination control */
+    --schedule-pagination-size: 15px;
+    --schedule-pagination-color: #999;
+    --schedule-pagination-hover-color: var(--gray-500);
+    --schedule-pagination-background: #f7f8f9;
+    --schedule-pagination-padding: 5px 10px;
+    --schedule-pagination-radius: 6px;
+
+    /* Workshop card */
+    --schedule-workshop-background: #f7f8f9;
+    --schedule-workshop-radius: 8px;
+    --schedule-workshop-padding: 15px;
+    --schedule-workshop-hover-shadow: 0 5px 10px 0px rgba(0, 0, 20, 0.1), 0 2px 3px 0px rgba(0, 0, 255, 0.05), inset 0 0 0 1px #eee;
+    --schedule-workshop-registered-border: 2px solid var(--primary);
+    --schedule-workshop-category-color: var(--secondary);
+
+    /* Registered pill */
+    --schedule-registered-pill-color: white;
+    --schedule-registered-pill-background: var(--primary);
+    --schedule-registered-pill-padding: 2px 8px;
+    --schedule-registered-pill-radius: 20px;
+
+    /* Buttons */
+    --schedule-btn-padding: 10px 15px;
+    --schedule-btn-radius: 6px;
+    --schedule-btn-signup-color: white;
+    --schedule-btn-signup-background: var(--primary);
+    --schedule-btn-remove-color: var(--gray-500);
+    --schedule-btn-remove-background: var(--gray-200);
+    --schedule-not-included-color: var(--gray-500);
+}
+
+.date-pagination {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.date-pagination .current-date {
+    font-size: var(--schedule-current-date-size);
+    font-weight: var(--schedule-current-date-weight);
+    text-align: center;
+}
+
+.date-pagination .current-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.date-pagination .current-page .highlight {
+    display: inline-flex;
+    height: var(--schedule-page-highlight-height);
+    width: var(--schedule-page-highlight-width);
+    border-radius: var(--schedule-page-highlight-radius);
+    background-color: var(--schedule-page-highlight-color);
+}
+
+.date-pagination .next-page {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.date-pagination .previous-date, .date-pagination .next-date {
+    font-size: var(--schedule-pagination-size);
+    color: var(--schedule-pagination-color);
+    background: var(--schedule-pagination-background);
+    padding: var(--schedule-pagination-padding);
+    border-radius: var(--schedule-pagination-radius);
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.date-pagination .previous-date:hover, .date-pagination .next-date:hover {
+    text-decoration: none;
+    color: var(--schedule-pagination-hover-color);
+}
+
+.time-block {
+    padding: 20px 0;
+}
+
+.time-block-header {
+    margin-bottom: 30px;
+}
+
+.time-block-header h3 {
+    margin-bottom: 0;
+}
+
+.workshops {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding-bottom: 30px;
+}
+
+.workshop {
+    background: var(--schedule-workshop-background);
+    border-radius: var(--schedule-workshop-radius);
+    padding: var(--schedule-workshop-padding);
+    transition: box-shadow ease 0.2s;
+    box-sizing: border-box;
+}
+
+.workshop:hover, .workshop:active, .workshop:focus {
+    box-shadow: var(--schedule-workshop-hover-shadow);
+    text-decoration: none;
+}
+
+.workshop .registered-pill {
+    background: var(--schedule-registered-pill-background);
+    color: var(--schedule-registered-pill-color);
+    padding: var(--schedule-registered-pill-padding);
+    border-radius: var(--schedule-registered-pill-radius);
+    display: inline-flex;
+    gap: 5px;
+    align-items: center;
+}
+
+.workshop.registered {
+    border: var(--schedule-workshop-registered-border);
+}
+
+.workshop-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 10px;
+    flex-wrap: wrap;
+}
+
+.workshop-header p {
+    margin: 0;
+}
+
+.workshop-category {
+    color: var(--schedule-workshop-category-color);
+}
+
+.workshop-time, .workshop-duration, .block-time, .speakers {
+    color: #9196a1;
+}
+
+.workshop-header, .block-time {
+    font-weight: 500;
+}
+
+.workshop-actions {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    justify-content: flex-end;
+}
+
+.workshop-actions .registration-action {
+    background: var(--schedule-btn-signup-background);
+    color: var(--schedule-btn-signup-color);
+    padding: var(--schedule-btn-padding);
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    border: 0;
+    border-radius: var(--schedule-btn-radius);
+    transition: box-shadow ease 0.2s;
+}
+
+.workshop-actions .registration-action:hover {
+    box-shadow: inset 0 0 0 100px rgba(255, 255, 255, 0.15);
+}
+
+.workshop-actions .registration-action.remove {
+    color: var(--schedule-btn-remove-color);
+    background: var(--schedule-btn-remove-background);
+}
+
+.not-included {
+    margin: 0;
+    color: var(--schedule-not-included-color);
+}
+
+@media screen and (max-width: 768px) {
+    .date-pagination {
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+    }
+
+    .date-pagination .previous-date, .date-pagination .next-date {
+        padding: 10px 15px;
+    }
+
+    .date-pagination .previous-page {
+        order: 2;
+    }
+    
+    .date-pagination .next-page {
+        order: 3;
+    }
+
+    .date-pagination .current-page {
+        order: 1;
+        grid-column: span 2;
+    }
+
+    .workshop-actions {
+        margin-top: 20px;
+    }
+}

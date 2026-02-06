@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="it-IT">
+
+<!-- Mirrored from support.yapla.com/hc/it-it/articles/42528776206355-Autenticazione-OAuth2-sulla-piattaforma-Yapla by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 24 Oct 2025 02:07:21 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+  <meta charset="utf-8" />
+  <!-- v26550 -->
+
+
+  <title>Autenticazione OAuth2 sulla piattaforma Yapla &ndash; Centro di assistenza</title>
+
+  <meta name="csrf-param" content="authenticity_token">
+<meta name="csrf-token" content="">
+
+  <meta name="description" content="Di seguito il processo per ottenere un token di accesso (access token) tramite il protocollo OAuth2. Questo token serve per effettuare..." /><meta property="og:image" content="../../theming_assets/279a092c605414542d7142b287acb9ef0edff3fd.svg" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Centro di assistenza" />
+<meta property="og:title" content="Autenticazione OAuth2 sulla piattaforma Yapla" />
+<meta property="og:description" content="Di seguito il processo per ottenere un token di accesso (access token) tramite il protocollo OAuth2. Questo token serve per effettuare chiamate sicure all'API GraphQL di Yapla per conto di un utent..." />
+<meta property="og:url" content="42528776206355-Autenticazione-OAuth2-sulla-piattaforma-Yapla.html" />
+<link rel="canonical" href="42528776206355-Autenticazione-OAuth2-sulla-piattaforma-Yapla.html">
+<link rel="alternate" hreflang="en-ca" href="../../en-ca/articles/42528776206355-OAuth2-Authentication-on-the-Yapla-Platform.html">
+<link rel="alternate" hreflang="fr" href="../../fr-ca/articles/42528776206355-Authentification-OAuth2-sur-la-plateforme-Yapla.html">
+<link rel="alternate" hreflang="fr-ca" href="../../fr-ca/articles/42528776206355-Authentification-OAuth2-sur-la-plateforme-Yapla.html">
+<link rel="alternate" hreflang="fr-fr" href="../../fr-fr/signinc6f0.html">
+<link rel="alternate" hreflang="it-it" href="42528776206355-Autenticazione-OAuth2-sulla-piattaforma-Yapla.html">
+<link rel="alternate" hreflang="x-default" href="../../fr-ca/articles/42528776206355-Authentification-OAuth2-sur-la-plateforme-Yapla.html">
+
+  <link rel="stylesheet" href="../../../../static.zdassets.com/hc/assets/application-b05bef4ffc3f78e3055ca9b0d57d81c3.css" media="all" id="stylesheet" />
+    <!-- Entypo pictograms by Daniel Bruce — www.entypo.com -->
+    <link rel="stylesheet" href="../../../../static.zdassets.com/hc/assets/theming_v1_support-e05586b61178dcde2a13a3d323525a18.css" media="all" />
+  <link rel="stylesheet" type="text/css" href="../../theming_assets/1539856/4625107/style7042.css?digest=45023748012307">
+
+  <link rel="icon" type="image/x-icon" href="../../theming_assets/f1e8c04a3ed8fc6e76ffb3039891521b9e05d69e.png">
+
+    <script src="../../../../static.zdassets.com/hc/assets/jquery-09d07e20ce042ef10e301661ad1f316c.js"></script>
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-L2LD44FC67"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-L2LD44FC67');
+</script>
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+
+
+  <link href="../../../../fonts.googleapis.com/css7fc9.css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
+
+
+<link rel="stylesheet" href="../../../../use.fontawesome.com/releases/v5.4.2/css/all.css">
+<link rel="stylesheet" href="../../../../cdn.jsdelivr.net/highlight.js/9.10.0/styles/github.min.css" />
+<link rel="stylesheet" href="../../../../cdn.jsdelivr.net/jquery.magnific-popup/1.0.0/magnific-popup.css" />
+<script src="../../../../cdn.jsdelivr.net/jquery.magnific-popup/1.0.0/jquery.magnific-popup.min.js"></script>
+<script src="../../../../cdn.jsdelivr.net/highlight.js/9.10.0/highlight.min.js"></script>
+<script type="text/javascript" src="../../../../cdn.weglot.com/weglot.min.js"></script>
+
+<script>
+    Weglot.initialize({
+       //api_key: 'wg_ee962e768d1450ca966edab7771c67335'
+    });
+</script>
+<meta property="og:image:src" content="/hc/theming_assets/01K0PFJZ9KQF8K1PCKW16BKPZR" />
+<meta property="og:image" content="/hc/theming_assets/01K0PFJZ9KQF8K1PCKW16BKPZR" />
+  <script type="text/javascript" src="../../theming_assets/1539856/4625107/script7042.js?digest=45023748012307"></script>
+</head>
+<body class="">
+  
+  
+  
+
+  <div class="layout
+            
+            ">
+  <div class="layout__head">
+    <header class="topbar container is-hidden topbar_image" data-topbar>
+      <div class="container-inner topbar__container-inner">
+        <div class="topbar__inner">
+          <div class="topbar__col clearfix">
+            <div class="logo-wrapper">
+              <div class="logo">
+                <a title="Home page" href="../../it-it.html">
+                <img src="../../theming_assets/279a092c605414542d7142b287acb9ef0edff3fd.svg" alt="Logo" /> </a>
+              </div>
+            </div>
+            <p class="help-center-name hidden-md hidden-sm hidden-xs">Centro di assistenza</p>
+            <button type="button" role="button" aria-label="Toggle Navigation" class="lines-button x" data-toggle-menu> <span class="lines"></span> </button>
+          </div>
+          <div class="topbar__col topbar__menu">
+            <div class="topbar__collapse" data-menu>
+              <div class="topbar__controls">
+                <div class="topbar__search">
+                  <form role="search" class="topbar__search-bar is-hidden" data-search="" data-instant="true" autocomplete="off" action="https://support.yapla.com/hc/it-it/search" accept-charset="UTF-8" method="get"><input type="hidden" name="utf8" value="&#x2713;" autocomplete="off" /><input type="search" name="query" id="query" placeholder="guides_recherche" autocomplete="off" aria-label="guides_recherche" />
+<input type="submit" name="commit" value="Cerca" /></form>
+                  <button type="button" role="button" class="topbar__btn-search">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="23" height="24" viewBox="0 0 23 24">
+                      <g fill="none" fill-rule="evenodd" transform="translate(-6 -2)">
+                        <circle cx="19.889" cy="11.611" r="8" stroke="#BDBDBD" stroke-width="2" transform="rotate(45 19.89 11.61)"/>
+                        <path fill="#BDBDBD" fill-rule="nonzero" d="M9.34328327,15.6566781 L11.3432833,15.6566781 L11.3432833,25.6606781 C11.3432833,26.2106781 10.8992833,26.6566781 10.3432833,26.6566781 C9.79128327,26.6566781 9.34328327,26.2116781 9.34328327,25.6606781 L9.34328327,15.6566781 Z" transform="rotate(45 10.343 21.157)"/>
+                      </g>
+                    </svg>
+                  </button>
+                </div>
+                
+                  <div class="dropdown language-selector" aria-haspopup="true">
+                    <a class="dropdown-toggle topbar__link">
+                      
+                       Italiano (Italia)
+                       
+                    </a>
+                    <span class="dropdown-menu" role="menu">
+                      
+                        <a href="../../en-ca/articles/42528776206355-OAuth2-Authentication-on-the-Yapla-Platform.html?return_to=%2Fhc%2Fen-ca%2Farticles%2F42528776206355-OAuth2-Authentication-on-the-Yapla-Platform" dir="ltr" rel="nofollow" role="menuitem" class="English (CA)">
+                          
+                         English
+                         
+                        </a>
+                      
+                        <a href="../../fr-ca/articles/42528776206355-Authentification-OAuth2-sur-la-plateforme-Yapla.html?return_to=%2Fhc%2Ffr-ca%2Farticles%2F42528776206355-Authentification-OAuth2-sur-la-plateforme-Yapla" dir="ltr" rel="nofollow" role="menuitem" class="Français (Canada)">
+                          
+                          
+                         Français (Canada)
+                         
+                        </a>
+                      
+                        <a href="../../fr-fr.html?return_to=%2Fhc%2Ffr-fr" dir="ltr" rel="nofollow" role="menuitem" class="Français (France)">
+                          
+                          
+                         Français (France)
+                         
+                        </a>
+                      
+                    </span>
+                  </div>
+                
+                <!--<a class="topbar__link btn btn--topbar submit-a-request" href="/hc/it-it/requests/new">Invia una richiesta</a>-->
+
+                <a class="topbar__link btn btn--topbar" href="https://meetings-eu1.hubspot.com/cdemolin/incontro" target="_blank">Programma un incontro</a> 
+                
+                &nbsp;
+                  <a class="login" data-auth-action="signin" role="button" rel="nofollow" title="Apre una finestra di dialogo" href="../signinc149.html?return_to=https%3A%2F%2Fsupport.yapla.com%2Fhc%2Fit-it%2Farticles%2F42528776206355-Autenticazione-OAuth2-sulla-piattaforma-Yapla&amp;locale=it-it">Accedi</a>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-unit is-hidden" data-hero-unit>
+        <div class="container-inner search-box search-box--hero-unit" data-search-box>
+          <div class="introTitle h1">
+            
+              Benvenuto nel centro di assistenza Yapla!
+            
+          </div>
+          <form role="search" class="search" data-search="" data-instant="true" autocomplete="off" action="https://support.yapla.com/hc/it-it/search" accept-charset="UTF-8" method="get"><input type="hidden" name="utf8" value="&#x2713;" autocomplete="off" /><input type="search" name="query" id="query" placeholder="guides_recherche" autocomplete="off" aria-label="guides_recherche" />
+<input type="submit" name="commit" value="Cerca" /></form>
+          <p class="search_suggestions"> &nbsp;</p>
+        </div>
+      </div>
+
+    </header>
+  </div>
+  <div class="layout__content">
+
+
+  <main role="main">
+    <div class="container">
+  <div class="container-inner">
+    <div class="row clearfix">
+      <div class="column column--sm-8">
+        <ol class="breadcrumbs">
+  
+    <li title="Centro di assistenza">
+      
+        <a href="../../it-it.html">Centro di assistenza</a>
+      
+    </li>
+  
+    <li title="Documentazione per gli sviluppatori">
+      
+        <a href="../categories/25947512567315-Documentazione-per-gli-sviluppatori.html">Documentazione per gli sviluppatori</a>
+      
+    </li>
+  
+    <li title="Funzioni avanzate">
+      
+        <a href="../sections/4405907190547-Funzioni-avanzate.html">Funzioni avanzate</a>
+      
+    </li>
+  
+</ol>
+
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container article-page">
+  <div class="container-inner">
+    <div class="row clearfix">
+      <div class="column column--sm-8 mainArticle">
+        <article class="article clearfix" itemscope itemtype="http://schema.org/Article">
+          <header class="article-header">
+            <h1 class="article__title" itemprop="name">
+              
+              Autenticazione OAuth2 sulla piattaforma Yapla
+            </h1>
+
+            <!---<div class="article-header__button">
+              <a class="article-subscribe" title="Apre una finestra di dialogo di iscrizione" rel="nofollow" role="button" data-auth-action="signin" aria-selected="false" href="/hc/it-it/articles/42528776206355-Autenticazione-OAuth2-sulla-piattaforma-Yapla/subscription.html">Segui</a>
+            </div>
+
+             <div class="article-meta">
+              <div class="article-meta__col article-meta__col--main">
+                <div class="entry-info ">
+                  <div class="entry-info__avatar">
+                    <div class="avatar avatar--agent">
+                      <img class="user-avatar user-avatar--default" src="https://secure.gravatar.com/avatar/f73c8c109e27ba7dcb57f46ea782975d?default=https%3A%2F%2Fassets.zendesk.com%2Fhc%2Fassets%2Fdefault_avatar.png&amp;r=g" alt="Avatar">
+                    </div>
+                  </div>
+                  <div class="entry-info__content">
+                    <b class="author">
+                      <a href="/hc/it-it/profiles/27512806193555-Raphael-Astier">
+                        Raphael Astier
+                      </a>
+                    </b>
+                    <div class="meta"><time datetime="2025-06-27T19:28:17Z" title="2025-06-27T19:28:17Z" data-datetime="calendar">27 giugno 2025 19:28</time></div>
+                  </div>
+                </div>
+              </div>
+            </div> --->
+          </header>
+					
+        
+        
+        
+          
+				
+          <div class="article__body markdown" itemprop="articleBody">
+            <p>Di seguito il processo per ottenere un token di accesso (<code>access token</code>) tramite il protocollo OAuth2. Questo token serve per effettuare chiamate sicure all'API GraphQL di Yapla per conto di un utente.</p><h3 id="h_01JYSE1K0GAR7806N63T54T5SB">Flussi di autenticazione supportati</h3><p>Yapla supporta due flussi standard e sicuri:</p><ol><li><strong>Flusso con Codice di Autorizzazione (Authorization Code Flow):</strong> Ideale per applicazioni web tradizionali in cui il <code>Client Secret</code> può essere archiviato in modo sicuro su un server.</li><li><strong>Flusso con Codice di Autorizzazione e PKCE (Proof Key for Code Exchange):</strong> <strong>Consigliato per i client pubblici</strong>, come applicazioni mobili o applicazioni web a pagina singola (SPA), in cui il <code>Client Secret</code> non può essere archiviato in modo sicuro.</li></ol><h3 id="h_01JYSE1K0J6VCRFVDAQQ8BKT4T">Passaggio 1: Ottenere le credenziali del client OAuth</h3><p>Prima di poterti connettere all'API, devi ottenere un <code>Client ID</code> e, se necessario, un <code>Client Secret</code>. Queste credenziali sono uniche per la tua applicazione.</p><p><strong>Azione richiesta:</strong></p><p>Per ricevere le tue credenziali, invia un'e-mail a <strong>support@yapla.com</strong> con le seguenti informazioni:</p><ul><li><strong>Nome dell'applicazione:</strong> Un nome descrittivo per il tuo progetto.</li><li><strong>Tipo di client:</strong> Specifica se la tua applicazione è confidenziale (server web) o pubblica (SPA, mobile).</li><li><strong>Descrizione delle tue esigenze:</strong> Spiega brevemente a cosa servirà la tua integrazione e i permessi (scope) di cui pensi di aver bisogno. <strong>Gli scope applicabili al tuo client ti saranno comunicati dal nostro team in base a questa descrizione.</strong></li><li><strong>URI di reindirizzamento (Redirect URIs):</strong> L'URL o gli URL completi a cui Yapla reindirizzerà l'utente dopo la sua autorizzazione. Questi URL devono essere precisi e sicuri (<code>https</code>).</li></ul><p>Il nostro team elaborerà la tua richiesta e ti restituirà in modo sicuro il tuo <code>Client ID</code> (e il <code>Client Secret</code> se applicabile).</p><h3 id="h_01JYSE1K0MZQ0CBXSJA89XN26Q">Passaggio 2: Reindirizzare l'utente alla pagina di consenso</h3><p>Il primo passo consiste nel reindirizzare l'utente alla pagina di consenso di Yapla.</p><h4 id="h_01JYSE1K0NM0Y9GYB8PJB6R91T">A. Generazione di <code>code_verifier</code> e <code>code_challenge</code> (Solo per PKCE)</h4><p>Se utilizzi il flusso PKCE, devi prima generare:</p><ol><li>Un <code>code_verifier</code>: Una stringa casuale ad alta entropia.</li><li>Un <code>code_challenge</code>: Il <code>code_verifier</code> codificato in Base64 dopo aver applicato una funzione di hash SHA-256. <code>code_challenge = BASE64URL-ENCODE(SHA256(ASCII(code_verifier)))</code></li></ol><p>Devi archiviare il <code>code_verifier</code> per utilizzarlo nel Passaggio 3.</p><h4 id="h_01JYSE1K0PNM4ZKZHFKPG8S90S">B. Costruzione dell'URL di autorizzazione</h4><p>Devi costruire un URL nel seguente formato:</p><pre class="language-auto">https://login.yapla.com/oauth/authorize?response_type=code&amp;client_id=[TUO_CLIENT_ID]&amp;redirect_uri=[TUO_URI_DI_REINDIRIZZAMENTO]&amp;scope=[SCOPE_ASSEGNATI]&amp;state=[VALORE_CASUALE]&amp;code_challenge=[CHALLENGE_PKCE]&amp;code_challenge_method=S256</pre><p><strong>Parametri dell'URL:</strong></p><ul><li><code>response_type=code</code>: Valore fisso.</li><li><code>client_id=[TUO_CLIENT_ID]</code>: Il tuo client ID.</li><li><code>redirect_uri=[TUO_URI_DI_REINDIRIZZAMENTO]</code>: Deve corrispondere esattamente a uno degli URI forniti.</li><li><code>scope=[SCOPE_ASSEGNATI]</code>: L'elenco dei permessi (separati da spazi) che ti sono stati assegnati.</li><li><code>state=[VALORE_CASUALE]</code>: Una stringa casuale per prevenire attacchi CSRF. Da verificare al ritorno.</li><li><code>code_challenge=[CHALLENGE_PKCE]</code>: <strong>(PKCE)</strong> La challenge generata.</li><li><code>code_challenge_method=S256</code>: <strong>(PKCE)</strong> Indica che la challenge è stata hashata con SHA-256.</li></ul><p>Dopo aver dato il consenso, l'utente viene reindirizzato al tuo <code>redirect_uri</code> con un <code>code</code> e lo <code>state</code> nei parametri.</p><h3 id="h_01JYSE1K0TRKY35BPEKD08BTJ2">Passaggio 3: Scambiare il codice di autorizzazione con un token di accesso</h3><p>Con il <code>code</code> ricevuto, la tua applicazione deve effettuare una richiesta <strong>POST</strong> all'endpoint dei token di Yapla per ottenere l'<code>access_token</code>.</p><p><strong>Endpoint:</strong> <code>POST https://login.yapla.com/oauth/token</code> <strong>Intestazione (Header):</strong> <code>Content-Type: application/x-www-form-urlencoded</code></p><p><strong>Corpo della richiesta (Body):</strong></p><ul><li><code>grant_type</code>: <code>authorization_code</code></li><li><code>code</code>: Il codice di autorizzazione ricevuto.</li><li><code>redirect_uri</code>: Lo stesso URI di reindirizzamento.</li><li><code>client_id</code>: Il tuo <code>Client ID</code>.</li><li><code>client_secret</code>: <strong>(Non-PKCE)</strong> Il tuo <code>Client Secret</code>.</li><li><code>code_verifier</code>: <strong>(PKCE)</strong> Il <code>code_verifier</code> originale che hai generato e archiviato.</li></ul><p><strong>Esempio con </strong><code><strong>curl</strong></code><strong> (Flusso PKCE):</strong></p><pre class="language-auto">curl -X POST \
+  https://login.yapla.com/oauth/token \
+  -H 'Content-Type: application/x-www-form-urlencoded' \
+  -d 'grant_type=authorization_code' \
+  -d 'code=[CODICE_RICEVUTO]' \
+  -d 'redirect_uri=[TUO_URI_DI_REINDIRIZZAMENTO]' \
+  -d 'client_id=[TUO_CLIENT_ID]' \
+  -d 'code_verifier=[TUO_CODE_VERIFIER]'</pre><p><strong>Risposta attesa (JSON):</strong></p><pre class="language-auto">{
+  "access_token": "xyz789...",
+  "token_type": "Bearer",
+  "expires_in": 3600,
+  "refresh_token": "abc123...",
+  "scope": "c3_12345 c3_67890"
+}</pre><p>Archivia l'<code>access_token</code> e il <code>refresh_token</code> in modo sicuro.</p><h3 id="h_01JYSE1K0ZASNZMSG1K86B1TRB">Passaggio 4: Utilizzare il token di accesso</h3><p>Ora puoi utilizzare l'<code>access_token</code> per effettuare chiamate autenticate all'API GraphQL di Yapla.</p><p><strong>Endpoint dell'API:</strong></p><ul><li>Nord America: <code>https://s1.yapla.com/graphql</code></li><li>Europa: <code>https://s2.yapla.com/graphql</code></li></ul><p><strong>Esempio di chiamata API:</strong></p><pre class="language-auto">curl -X POST \
+  https://[s1|s2].yapla.com/graphql \
+  -H 'Authorization: Bearer [TUO_ACCESS_TOKEN]' \
+  -H 'Content-Type: application/json' \
+  -d '{"query": "{ company { name } }"}'</pre><p>Congratulazioni, la tua applicazione è ora connessa all'API di Yapla!</p>
+          </div>
+
+          <div class="article__attachments">
+            
+          </div>
+
+        </article>
+
+        <footer class="article-footer clearfix">
+          
+            <div class="article-vote">
+              <h3>Questo articolo ti è stato utile?</h3>
+              <div class="article-vote-controls">
+               <a class="article-vote-up btn btn--invert" data-helper="vote" data-item="article" data-type="up" data-id="42528776206355" data-upvote-count="0" data-vote-count="1" data-vote-sum="-1" data-vote-url="/hc/it-it/articles/42528776206355/vote" data-value="null" data-label="Utenti che ritengono sia utile: 0 su 1" data-selected-class="vote-voted" aria-selected="false" role="button" rel="nofollow" title="Sì" href="#"></a>
+                <a class="article-vote-down btn btn--invert" data-helper="vote" data-item="article" data-type="down" data-id="42528776206355" data-upvote-count="0" data-vote-count="1" data-vote-sum="-1" data-vote-url="/hc/it-it/articles/42528776206355/vote" data-value="null" data-label="Utenti che ritengono sia utile: 0 su 1" data-selected-class="vote-voted" aria-selected="false" role="button" rel="nofollow" title="No" href="#"></a>
+              </div>
+             <!-- <small class="article-vote-count">
+                <span class="article-vote-label" data-helper="vote" data-item="article" data-type="label" data-id="42528776206355" data-upvote-count="0" data-vote-count="1" data-vote-sum="-1" data-vote-url="/hc/it-it/articles/42528776206355/vote" data-value="null" data-label="Utenti che ritengono sia utile: 0 su 1">Utenti che ritengono sia utile: 0 su 1</span>
+              </small>-->
+            </div>
+          
+        </footer>
+
+        
+
+        <section class="comments" id="comments" itemscope itemtype="http://schema.org/UserComments">
+          <div class="comments__header">
+            <h3>Commenti</h3>
+
+            <div class="comment-sorter">
+              <div class="comment-sorter__col comment-sorter__col--main">
+                0 commenti
+              </div>
+
+              
+            </div>
+          </div>
+
+          
+
+          <p class="comments__callout"><a data-auth-action="signin" rel="nofollow" href="../signind9f4.html?return_to=https%3A%2F%2Fsupport.yapla.com%2Fhc%2Fit-it%2Farticles%2F42528776206355-Autenticazione-OAuth2-sulla-piattaforma-Yapla">Accedi</a> per aggiungere un commento.</p>
+
+          
+        </section>
+      </div>
+      <div class="column column--sm-4">
+        <div class="article-sidebar">
+          <section class="section-articles">
+            <h3 class="section-articles__title">Articoli in questa sezione</h3>
+            <ul class="section-articles__list">
+              
+                <li class="section-articles__item">
+                  <a href="42616610743059-Utilizzare-l-API-GraphQL-di-Yapla.html" class="section-articles__link ">Utilizzare l&#39;API GraphQL di Yapla</a>
+                </li>
+              
+                <li class="section-articles__item">
+                  <a href="42528776206355-Autenticazione-OAuth2-sulla-piattaforma-Yapla.html" class="section-articles__link is-active">Autenticazione OAuth2 sulla piattaforma Yapla</a>
+                </li>
+              
+                <li class="section-articles__item">
+                  <a href="25948272742035-Personalizzate-il-modo-in-cui-vengono-visualizzati-i-vostri-contenuti-utilizzando-i-modelli.html" class="section-articles__link ">Personalizzate il modo in cui vengono visualizzati i vostri contenuti utilizzando i modelli</a>
+                </li>
+              
+                <li class="section-articles__item">
+                  <a href="360033612674-Sincronizzare-i-membri-e-gli-eventi-di-un-organizzazione-tra-software-esterni-e-Yapla.html" class="section-articles__link ">Sincronizzare i membri e gli eventi di un&#39;organizzazione tra software esterni e Yapla</a>
+                </li>
+              
+                <li class="section-articles__item">
+                  <a href="11872666850451-Single-Sign-On-SSO-con-Yapla.html" class="section-articles__link ">Single Sign-On (SSO) con Yapla</a>
+                </li>
+              
+                <li class="section-articles__item">
+                  <a href="360025051793-Configurare-API.html" class="section-articles__link ">Configurare API</a>
+                </li>
+              
+                <li class="section-articles__item">
+                  <a href="360053032373-Come-fa-Zapier.html" class="section-articles__link ">Come fa Zapier</a>
+                </li>
+              
+                <li class="section-articles__item">
+                  <a href="360034120093-Crea-gruppi-su-misura.html" class="section-articles__link ">Crea gruppi su misura</a>
+                </li>
+              
+            </ul>
+            
+          </section>
+          <section class="pub-webinaire">
+            <a href="https://app.livestorm.co/yapla/30-minuti-per-scoprire-yapla?utm_campaign=webinaire-decouverte-it-it&amp;utm_medium=aideenligne&amp;utm_source=tuile" target="_blank"> 
+              
+              
+              	<img src="../../theming_assets/encart-webinaire-300-600-IT-IT.jpg"/>
+              
+              
+              
+            </a>
+          </section>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+  </main>
+
+  </div>
+<div class="layout__contact">
+   <section class="footer-submit-ticket is-hidden" data-footer-submit-ticket>
+  <div class="container">
+    <div class="container-inner">	
+   
+      <div class="row">
+          <div class="column column--xs-12 column--sm-9">
+            <h2 class="footer-submit-ticket__title">Non hai trovato la risposta?</h2>
+            <h4 class="footer-submit-ticket__subtitle">Fatti aiutare dal nostro team senza aspettare!</h4>
+          </div>
+          <div class="column column--xs-12 column--sm-3">
+          <a class="btn btn--default footer-submit-ticket__btn" href="../requests/new.html">Invia una richiesta</a>
+          </div>
+			</div>
+     
+  </div>
+    </div>
+      </section>
+</div>
+<div class="layout__footer">
+  <footer class="footer">
+    <div class="footer__wrapper container">
+      
+      <div class="container-inner footer__inner">
+        
+        <div class="row">
+  <div class="column column--xs-6 logo"><img src="../../theming_assets/logo_yapla-blanc.png" alt="Logo Yapla"/></div>
+  <div class="column column--xs-6">
+    <div class="footer__col footer__col--social-links">
+      
+            <a href="https://www.facebook.com/yapla.com.it" target="_blank" class="footer-social-link fab fa-facebook"></a>
+          
+          
+            <a href="https://twitter.com/Yapla_CA" target="_blank" class="footer-social-link fab fa-twitter"></a>
+          
+          
+            <a href="https://www.linkedin.com/company/yaplacommunity" target="_blank" class="footer-social-link fab fa-linkedin"></a>
+          
+          
+            <a href="https://www.youtube.com/channel/UC3H3F1P7dR4SjG1Zevk6LLA" target="_blank" class="footer-social-link fab fa-youtube"></a>
+          
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="column column--xs-12 column--sm-6 column--md-3">
+    
+      <div class="dropdown language-selector" aria-haspopup="true">
+        <a class="dropdown-toggle topbar__link">
+          
+           Italiano (Italia)
+           
+        </a>
+        <span class="dropdown-menu" role="menu">
+          
+            <a href="../../en-ca/articles/42528776206355-OAuth2-Authentication-on-the-Yapla-Platform.html?return_to=%2Fhc%2Fen-ca%2Farticles%2F42528776206355-OAuth2-Authentication-on-the-Yapla-Platform" dir="ltr" rel="nofollow" role="menuitem">
+              
+               English
+               
+            </a>
+          
+            <a href="../../fr-ca/articles/42528776206355-Authentification-OAuth2-sur-la-plateforme-Yapla.html?return_to=%2Fhc%2Ffr-ca%2Farticles%2F42528776206355-Authentification-OAuth2-sur-la-plateforme-Yapla" dir="ltr" rel="nofollow" role="menuitem">
+              
+               Français (Canada)
+               
+            </a>
+          
+            <a href="../../fr-fr.html?return_to=%2Fhc%2Ffr-fr" dir="ltr" rel="nofollow" role="menuitem">
+              
+               Français (France)
+               
+            </a>
+          
+        </span>
+      </div>
+    
+  </div>
+  <div class="column column--xs-12 column--sm-6 column--md-3">
+      <ul>
+        <li><strong>Tariffe</strong></li>
+        <li><a href="../../../../www.yapla.com/it/tariffe.html">Tariffe</a></li>
+        <li><a href="../../../../www.yapla.com/it/tariffe.html">Tutte le funzionalità</a></li>
+      </ul>
+  </div>
+  <div class="column column--xs-12 column--sm-6 column--md-3">
+    <ul>
+      <li><strong>Webinar</strong></li>
+      <li><a href="../../../../www.yapla.com/it/webinar.html">30 minuti per scoprire Yapla</a></li>
+      <li><a href="../../../../www.yapla.com/it/demo.html">Demo</a></li>
+    </ul>
+  </div>
+  <div class="column column--xs-12 column--sm-6 column--md-3">
+    <ul>
+      <li><strong>Funzionalità</strong></li>
+      <li><a href="../../../../www.yapla.com/it/membri.html">Membri</a></li>
+	<li><a href="../../../../www.yapla.com/it/eventi.html">Eventi</a></li>
+	<li><a href="../../../../www.yapla.com/it/donazioni.html">Donazioni</a></li>
+    </ul>
+  </div>
+</div>
+<div class="row">
+  <div class="column column--sm-12"><div class="footer__col copyright">
+          <p>Copyright &copy; 2013-<script>document.write( new Date().getFullYear() );</script> Yapla</p>
+        </div></div>
+</div>
+        
+
+      </div>
+    </div>
+  </footer>
+</div>
+</div>
+
+<!--  Intégration du widget génial -->
+
+<script>
+  console.log("Current locale: Italiano (Italia)");
+
+  let agentId = null;
+
+  switch ("Italiano (Italia)") {
+    case "Français (Canada)":
+      agentId = "cm0wjqpe30001u1i98h4hhqw7";
+      break;
+    case "English (CA)":
+      agentId = "cm4isvv270fx00qmm6kzw9on4";
+      break;
+    case "Français (France)":
+      agentId = "cm4iskv0s0fth0qmm5csq8syt";
+      break;
+    case "Italiano (Italia)":
+      agentId = "cm4tzmuoq04100qnzgz780o2q";
+      break;
+    default:
+      console.log("No matching Genial Agent for this locale.");
+  }
+
+  if (agentId) {
+    // Insert Genial agent bubble
+    const agentDiv = document.createElement('div');
+    agentDiv.id = 'genial-agent';
+    document.body.appendChild(agentDiv);
+
+    const script = document.createElement('script');
+    script.id = 'Agent-Bubble-Widget';
+    script.src = '../../../../cdn.wearegenial.com/integration/chat-bubble-latest.js';
+    script.setAttribute('agent-id', agentId);
+    document.body.appendChild(script);
+
+    // Inject custom CSS
+    const style = document.createElement('style');
+    style.type = 'text/css';
+    style.innerHTML = `
+      .chat-widget-button-genial .button-content-genial {
+        display: none !important;
+      }
+
+      .chat-widget-button-genial {
+        all: unset;
+        cursor: pointer;
+        width: 64px;
+        height: 64px;
+        border-radius: 9999px;
+        background-color: #3b82f6;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.3s ease;
+        box-shadow: 0 20px 25px -5px rgba(59, 130, 246, 0.4);
+      }
+
+      .chat-widget-button-genial:hover {
+        color: #dbeafe;
+        box-shadow: 0 10px 15px -3px rgba(59, 130, 246, 0.6);
+      }
+
+      .chat-widget-button-genial::before {
+        content: '';
+        display: block;
+        width: 64px;
+        height: 64px;
+        background-image: url('https://cdn.ca.yapla.com/company/CPYDx0ShNt4P5zYrLFTyEqB7V/asset/images/logo-yapla-Photoroom.png');
+        background-size: cover;
+        background-position: center;
+        border-radius: 9999px;
+      }
+    `;
+    document.head.appendChild(style);
+
+    console.log("Genial Agent loaded with ID:", agentId);
+  }
+</script>
+
+<!-- Fin - Intégration du widget génial -->
+
+
+
+  <div hidden data-lt-i18n-dictionary>
+    <div data-lt-i18n="search_placeholder">Cosa stai cercando?</div>
+  </div>
+
+  <script>
+    var $ltDictionary = $('[data-lt-i18n-dictionary]');
+    $('[role="search"] input[type="search"]').each(function (index, el) {
+      $(el).attr('placeholder', $ltDictionary.find('[data-lt-i18n="search_placeholder"]').html());
+    });
+  </script>
+
+<!-- Hotjar Tracking Code for https://support.yapla.com/hc/fr-fr -->
+<script>
+    (function(h,o,t,j,a,r){
+        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+        h._hjSettings={hjid:1899356,hjsv:6};
+        a=o.getElementsByTagName('head')[0];
+        r=o.createElement('script');r.async=1;
+        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+        a.appendChild(r);
+    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+</script>
+
+
+  <!-- / -->
+
+  
+  <script src="../../../../static.zdassets.com/hc/assets/it-it.ca0d2b75924406407798.js"></script>
+  <script src="../../../../static.zdassets.com/auth/65862f5e6fcaef29148ee7c7f0f3454a27eeefd9/v2/host-without-iframe.js" data-brand-id="4625107" data-return-to="https://support.yapla.com/hc/it-it/articles/42528776206355-Autenticazione-OAuth2-sulla-piattaforma-Yapla" data-theme="hc" data-locale="it-it" data-auth-origin="4625107,true,true"></script>
+
+  <script type="text/javascript">
+  /*
+
+    Greetings sourcecode lurker!
+
+    This is for internal Zendesk and legacy usage,
+    we don't support or guarantee any of these values
+    so please don't build stuff on top of them.
+
+  */
+
+  HelpCenter = {};
+  HelpCenter.account = {"subdomain":"yapla","environment":"production","name":"Yapla"};
+  HelpCenter.user = {"identifier":"da39a3ee5e6b4b0d3255bfef95601890afd80709","email":null,"name":"","role":"anonymous","avatar_url":"https://assets.zendesk.com/hc/assets/default_avatar.png","is_admin":false,"organizations":[],"groups":[]};
+  HelpCenter.internal = {"asset_url":"//static.zdassets.com/hc/assets/","web_widget_asset_composer_url":"https://static.zdassets.com/ekr/snippet.js","current_session":{"locale":"it-it","csrf_token":null,"shared_csrf_token":null},"usage_tracking":{"event":"article_viewed","data":"BAh7CDoLbG9jYWxlSSIKaXQtaXQGOgZFVDoPYXJ0aWNsZV9pZGwrCBM4mQCuJjoKX21ldGF7DDoPYWNjb3VudF9pZGkDEH8XOhNoZWxwX2NlbnRlcl9pZGwrCKjuisYaADoNYnJhbmRfaWRpA9OSRjoMdXNlcl9pZDA6E3VzZXJfcm9sZV9uYW1lSSIOQU5PTllNT1VTBjsGVDsASSIKaXQtaXQGOwZUOhphbm9ueW1vdXNfdHJhY2tpbmdfaWQw--dc68e7107bf19448f8caa4807bd71d721ceef3dd","url":"https://support.yapla.com/hc/activity"},"current_record_id":"42528776206355","current_record_url":"/hc/it-it/articles/42528776206355-Autenticazione-OAuth2-sulla-piattaforma-Yapla","current_record_title":"Autenticazione OAuth2 sulla piattaforma Yapla","current_text_direction":"ltr","current_brand_id":4625107,"current_brand_name":"Yapla","current_brand_url":"https://yapla.zendesk.com","current_brand_active":true,"current_path":"/hc/it-it/articles/42528776206355-Autenticazione-OAuth2-sulla-piattaforma-Yapla","show_autocomplete_breadcrumbs":true,"user_info_changing_enabled":false,"has_user_profiles_enabled":true,"has_end_user_attachments":true,"user_aliases_enabled":true,"has_anonymous_kb_voting":true,"has_multi_language_help_center":true,"show_at_mentions":true,"embeddables_config":{"embeddables_web_widget":false,"embeddables_help_center_auth_enabled":false,"embeddables_connect_ipms":false},"answer_bot_subdomain":"static","general_settings_url":"https://support.yapla.com/hc/admin/general_settings?locale=it-it","user_segments_url":"https://yapla.zendesk.com/knowledge/user_segments?brand_id=4625107","has_gather":true,"has_ckeditor":false,"has_community_enabled":false,"has_community_badges":true,"has_community_post_content_tagging":false,"has_gather_content_tags":true,"has_guide_content_tags":true,"has_user_segments":true,"has_answer_bot_web_form_enabled":true,"has_garden_modals":false,"theming_cookie_key":"hc-da39a3ee5e6b4b0d3255bfef95601890afd80709-2-preview","is_preview":false,"has_alternate_templates":true,"arrange_articles_url":"https://yapla.zendesk.com/knowledge/arrange?brand_id=4625107","article_verification_url":"https://yapla.zendesk.com/knowledge/verification?brand_id=4625107","has_article_verification":true,"guide_language_settings_url":"https://support.yapla.com/hc/admin/language_settings?locale=it-it","docs_importer_url":"https://yapla.zendesk.com/knowledge/import_articles?brand_id=4625107","content_tags_url":"https://yapla.zendesk.com/knowledge/content_tags?brand_id=4625107","community_badges_url":"https://yapla.zendesk.com/knowledge/community_badges?brand_id=4625107","community_settings_url":"https://yapla.zendesk.com/knowledge/community_settings?brand_id=4625107","gather_plan_state":"subscribed","search_settings_url":"https://yapla.zendesk.com/knowledge/search_settings?brand_id=4625107","has_search_settings_in_plan":true,"theming_api_version":1,"theming_settings":{"toggle_translations":true,"body_bg":"rgba(241, 245, 253, 1)","brand_primary":"rgba(51, 122, 183, 1)","brand_secondary":"rgba(255, 123, 20, 1)","text_color":"rgba(89, 92, 98, 1)","link_color":"rgba(51, 122, 183, 1)","font_size_base":"16px","font_family_base":"'Lato', sans-serif","line_height_base":"1.5","hero_show_image":"yes","hero_homepage_image":"/hc/theming_assets/01JZGCABFJRR24V4N0KMV5A0BA","hero_unit_mask_bg":"rgba(51, 122, 183, 1)","hero_unit_mask_opacity":"0.8","hero_title":"Bienvenue sur le centre d'assistance Yapla !","search_placeholder":"Que recherchez-vous ? (exemple : campagne de dons)","button_color_1":"rgba(255, 123, 20, 1)","logo":"/hc/theming_assets/01HZKYFVCXK175D2P9CTRD9EXM","logo_height":"50px","favicon":"/hc/theming_assets/01HZKYFVGFKGDWPAM4SE0MJPDC","border_radius_base":"5px","toggle_custom_blocks":"no","toggle_promoted_articles":"yes","toggle_category_list":"yes","toggle_category_tree":"no","brand_info":"#5bc0de","brand_success":"#504d7f","brand_warning":"#fad782","brand_danger":"#ff5252","custom_block_1_type":"custom","custom_block_1_icon":"/hc/theming_assets/01HZKYFVP02WB12M3D1KGK0JR0","custom_block_1_title":"Version Française","custom_block_1_description":"Visitez la version française de notre base de connaissance","custom_block_1_url":"https://support.yapla.com/hc/fr-ca","custom_block_2_type":"custom","custom_block_2_icon":"/hc/theming_assets/01HZKYFVSPCQ5NTG2P49XBGYT1","custom_block_2_title":"Rendez-vous","custom_block_2_description":"Besoin de parler à un agent ? Cliquez ici pour prendre rendez-vous","custom_block_2_url":"https://yapla-france.youcanbook.me/","custom_block_3_type":"custom","custom_block_3_icon":"/hc/theming_assets/01HZKYFVZ2NGNKKH2X0HG9P8PJ","custom_block_3_title":"Rendez-vous","custom_block_3_description":"Besoin de parler à un agent ? Cliquez ici pour prendre rendez-vous","custom_block_3_url":"https://yapla-ca-fr.youcanbook.me/","custom_block_4_type":"submit_a_request","custom_block_4_icon":"/hc/theming_assets/01HZKYFW3AR2T39JA783DDNMMD","custom_block_4_title":"Contactez-nous","custom_block_4_description":"Envoyez-nous votre demande et notre équipe vous répondra rapidement","custom_block_4_url":"/hc/fr-ca/requests/new","topbar_text_color":"#fff","topbar_link_color":"#fff","topbar_button_color":"#fff","footer_text_color":"#fff","footer_link_color":"#fff","footer_social_link_color":"#fff","facebook_url":"https://www.facebook.com/YaplaCommunity/","twitter_url":"https://twitter.com/Yapla_CA","google_plus_url":"","linkedin_url":"https://www.linkedin.com/company/yaplacommunity/","youtube_url":"https://www.youtube.com/channel/UC3H3F1P7dR4SjG1Zevk6LLA","pinterest_url":"","instagram_url":""},"has_pci_credit_card_custom_field":true,"help_center_restricted":false,"is_assuming_someone_else":false,"flash_messages":[],"user_photo_editing_enabled":true,"user_preferred_locale":"fr","base_locale":"it","login_url":"https://yapla.zendesk.com/access?brand_id=4625107\u0026locale=it-it\u0026return_to=https%3A%2F%2Fsupport.yapla.com%2Fhc%2F","has_custom_statuses_enabled":false,"has_hc_generative_answers_setting_enabled":true,"has_generative_search_with_zgpt_enabled":false,"has_guide_service_catalog":true,"has_service_catalog_search_poc":false,"has_service_catalog_itam":false,"has_remove_breadcrumbs":true,"has_csat_reverse_2_scale_in_mobile":false,"has_knowledge_navigation":false,"version":"v26550","dev_mode":false};
+</script>
+
+  <script src="../../../../static.zdassets.com/hc/assets/moment-4ef0d82f9fc65c8a28f659aa3430955f.js"></script>
+  <script src="../../../../static.zdassets.com/hc/assets/hc_enduser-86686ec182d31ace77dfb4c2c8d74533.js"></script>
+  
+  
+</body>
+
+<!-- Mirrored from support.yapla.com/hc/it-it/articles/42528776206355-Autenticazione-OAuth2-sulla-piattaforma-Yapla by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 24 Oct 2025 02:07:29 GMT -->
+</html>
